@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Background Color Picker</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="intro_text">Background Color Picker</string>
+    <string name="question">What\'s your favorite color?</string>
+    <string name="instruction">Now that you have picked a color press the button to customize the backgound.</string>
+    <string name="pick_button">Pick</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="zero">255</string>
+    <string name="save">Save</string>
+    <string name="help">Help!</string>
+
+</resources>
