@@ -11,19 +11,19 @@ package com.j2w2.rbarnes.colorpicker;
 
 
 
+import com.j2w2.rbarnes.colorpicker.ColorMainFragment.FavoriteListener;
+import com.j2w2.rbarnes.colorpicker.ColorPickerFragment.PickerListener;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 @SuppressLint("ShowToast")
-public class ColorMainActivity extends Activity {
+public class ColorMainActivity extends FragmentActivity implements FavoriteListener, PickerListener {
 	
 	
 	Toast toast;
@@ -32,40 +32,8 @@ public class ColorMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_color_main);
-		
-		final Intent pickerIntent = new Intent(this, ColorPickerActivity.class);
-		//Detect Button
-		Button pickButton = (Button) findViewById(R.id.PickButton);
 		//set toast text
 		toast = Toast.makeText(this, "Please enter a color!.", Toast.LENGTH_SHORT);
-		
-		pickButton.setOnClickListener(new Button.OnClickListener() {  
-		@Override
-		public void onClick(View v) {
-			//Grab users favorite color
-			EditText colorField   = (EditText)findViewById(R.id.color_input_field);
-			String colorText = colorField.getText().toString();
-			
-			//Detect if anything was inputed
-			if(colorText.matches(""))
-			{
-				
-				toast.show();
-			}
-			else
-			{
-				//Save color and launch picker activity
-				pickerIntent.putExtra("fav_color", colorText);
-				
-				
-				startActivityForResult(pickerIntent,0);
-			}
-			
-			
-		}
-        });
-		
-		
 	}
 
 	@Override
@@ -83,14 +51,34 @@ public class ColorMainActivity extends Activity {
 			  
 			  View view = (View)findViewById(R.id.MainLayout);
 			  view.setBackgroundColor(Color.rgb(data.getIntExtra("redInfo", 0), data.getIntExtra("greenInfo", 0), data.getIntExtra("blueInfo", 0)));
-			  
-			  
+			  }
+		  }
+	}
 
-			   
+	@Override
+	public void displayToast() {
+		// TODO Auto-generated method stub
+		toast.show();
+	}
 
-			          }
+	@Override
+	public void showPicker(String favoriteColor) {
+		// TODO Auto-generated method stub
+		
+		final Intent pickerIntent = new Intent(this, ColorPickerActivity.class);
+		
+		//Save color and launch picker activity
+		pickerIntent.putExtra("fav_color", favoriteColor);
+			
+			
+		startActivityForResult(pickerIntent,0);
+		
+	}
 
-	  }
+	@Override
+	public void onColorChange(int red, int green, int blue) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
