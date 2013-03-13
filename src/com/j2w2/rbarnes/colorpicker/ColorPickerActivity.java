@@ -22,7 +22,7 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
 	
 	
 	TextView _colorTextView;
-	Intent _nameIntent;
+	Intent _mainIntent;
 
     
     @Override
@@ -31,8 +31,8 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
         setContentView(R.layout.activity_picker);
         //grab color text view 
         _colorTextView=(TextView)findViewById(R.id.ColorView1);
-        _nameIntent = getIntent();
-        String favColor = _nameIntent.getStringExtra("fav_color");
+        _mainIntent = getIntent();
+        String favColor = _mainIntent.getStringExtra("fav_color");
         _colorTextView.setText(favColor + " is your favorite color! You can customize the the background color by using the RGB sliders. To save please press the save button. For color ideas press the idea button. ");
         
         
@@ -47,5 +47,10 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
 	@Override
 	public void onColorChange(int red, int green, int blue) {
 		
+		_mainIntent.putExtra("redInfo", red);
+		_mainIntent.putExtra("greenInfo",green);
+		_mainIntent.putExtra("blueInfo",blue);
+		 setResult(RESULT_OK, _mainIntent);
+		 finish();
 		
 	}}
