@@ -21,6 +21,7 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 	static int _greenInt;
 	static int _blueInt;
 	TextView _colorTextView;
+	LinearLayout view;
 	
 	private PickerListener listener;
 	
@@ -44,7 +45,7 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 	   // onCreateView
 	   @Override
 	   public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
-		   LinearLayout view = (LinearLayout)inflater.inflate(R.layout.fragment_picker,container,false);
+		   view = (LinearLayout)inflater.inflate(R.layout.fragment_picker,container,false);
 		   
 	        //grab color text view 
 	        _colorTextView=(TextView)view.findViewById(R.id.ColorView1);
@@ -58,7 +59,7 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 	        _redInt = 255;
 	        _greenInt = 255;
 	        _blueInt = 255;
-	        _colorTextView.setBackgroundColor(Color.rgb(_redInt, _greenInt, _blueInt));
+	        view.setBackgroundColor(Color.rgb(_redInt, _greenInt, _blueInt));
 	        
 	        //detect user input
 	        redBar.setOnSeekBarChangeListener(this);
@@ -137,7 +138,8 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 				break;
 			}
 			
-			_colorTextView.setBackgroundColor(Color.rgb(_redInt, _greenInt, _blueInt));
+			
+			view.setBackgroundColor(Color.rgb(_redInt, _greenInt, _blueInt));
 		}
 
 		@Override

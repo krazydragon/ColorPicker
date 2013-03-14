@@ -13,6 +13,8 @@ package com.j2w2.rbarnes.colorpicker;
 
 import com.j2w2.rbarnes.colorpicker.ColorMainFragment.FavoriteListener;
 import com.j2w2.rbarnes.colorpicker.ColorPickerFragment.PickerListener;
+
+import android.R.color;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -25,13 +27,14 @@ import android.widget.Toast;
 @SuppressLint("ShowToast")
 public class ColorMainActivity extends FragmentActivity implements FavoriteListener, PickerListener {
 	
-	
+	View _view;
 	Toast toast;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_color_main);
+		_view = (View)findViewById(R.id.MainLayout);
 		//set toast text
 		toast = Toast.makeText(this, "Please enter a color!.", Toast.LENGTH_SHORT);
 	}
@@ -49,8 +52,8 @@ public class ColorMainActivity extends FragmentActivity implements FavoriteListe
 		  super.onActivityResult(requestCode, resultCode, data);
 		  if(data.getExtras().containsKey("redInfo")){
 			  
-			  View view = (View)findViewById(R.id.MainLayout);
-			  view.setBackgroundColor(Color.rgb(data.getIntExtra("redInfo", 0), data.getIntExtra("greenInfo", 0), data.getIntExtra("blueInfo", 0)));
+			  
+			  _view.setBackgroundColor(Color.rgb(data.getIntExtra("redInfo", 0), data.getIntExtra("greenInfo", 0), data.getIntExtra("blueInfo", 0)));
 			  }
 		  }
 	}
@@ -78,7 +81,7 @@ public class ColorMainActivity extends FragmentActivity implements FavoriteListe
 	@Override
 	public void onColorChange(int red, int green, int blue) {
 		// TODO Auto-generated method stub
-		
+		_view.setBackgroundColor(Color.rgb(red, green, blue));
 	}
 
 }
