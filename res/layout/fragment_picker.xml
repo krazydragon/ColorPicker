@@ -3,136 +3,146 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:visibility="visible" >
 
     <TextView
         android:id="@+id/ColorView1"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.84"
-        android:gravity="center" />
+        android:layout_weight=".75"
+        android:gravity="center"
+        android:text="@string/pick_text"
+        android:textIsSelectable="false" />
 
     <LinearLayout
-        android:id="@+id/RedLayout"
+        android:id="@+id/ColorSliders"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone" >
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1.19"
-            android:gravity="center_vertical"
-            android:text="@string/red"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+        <LinearLayout
+            android:id="@+id/RedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <SeekBar
-            android:id="@+id/RedBar"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1.19"
+                android:gravity="center_vertical"
+                android:text="@string/red"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <SeekBar
+                android:id="@+id/RedBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="18.90"
+                android:max="255"
+                android:progress="255" />
+
+            <TextView
+                android:id="@+id/RedBarText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3.10"
+                android:gravity="center_vertical"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/GreenLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/green"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <SeekBar
+                android:id="@+id/GreenBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_weight="18.58"
+                android:max="255"
+                android:progress="255" />
+
+            <TextView
+                android:id="@+id/GreenBarText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3.10"
+                android:gravity="center_vertical"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/BlueLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1.07"
+                android:gravity="center_vertical"
+                android:text="@string/blue"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <SeekBar
+                android:id="@+id/BlueBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="17.92"
+                android:max="255"
+                android:progress="255" />
+
+            <TextView
+                android:id="@+id/BlueBarText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3.11"
+                android:gravity="center_vertical"
+                android:text="@string/zero"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ButtonLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="18.90"
-            android:max="255"
-            android:progress="255" />
+            android:layout_marginTop="25dp" >
 
-        <TextView
-            android:id="@+id/RedBarText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="3.10"
-            android:gravity="center_vertical"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            <Button
+                android:id="@+id/SaveButton"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:text="@string/save" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/GreenLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="@string/green"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <SeekBar
-            android:id="@+id/GreenBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:layout_weight="18.90"
-            android:max="255"
-            android:progress="255" />
-
-        <TextView
-            android:id="@+id/GreenBarText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="3.10"
-            android:gravity="center_vertical"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/BlueLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1.07"
-            android:gravity="center_vertical"
-            android:text="@string/blue"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <SeekBar
-            android:id="@+id/BlueBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="17.92"
-            android:max="255"
-            android:progress="255" />
-
-        <TextView
-            android:id="@+id/BlueBarText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="3.11"
-            android:gravity="center_vertical"
-            android:text="@string/zero"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ButtonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/SaveButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
-            android:layout_weight="0.50"
-            android:text="@string/save" />
-
-        <Button
-            android:id="@+id/WebButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="0.50"
-            android:text="@string/help" />
+            <Button
+                android:id="@+id/WebButton"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:text="@string/help" />
+        </LinearLayout>
 
     </LinearLayout>
 

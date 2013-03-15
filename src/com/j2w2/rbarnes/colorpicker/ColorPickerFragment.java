@@ -35,7 +35,7 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 	   public void onCreate(Bundle savedInstanceState) {
 	      super.onCreate(savedInstanceState);
 	   }
-
+	   
 	   // onActivityCreated
 	   @Override
 	   public void onActivityCreated(Bundle savedInstanceState) {

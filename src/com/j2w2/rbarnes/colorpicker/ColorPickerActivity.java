@@ -10,10 +10,14 @@
 package com.j2w2.rbarnes.colorpicker;
 
 import com.j2w2.rbarnes.colorpicker.ColorPickerFragment.PickerListener;
+import com.rbarnes.other.WebInterface;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ColorPickerActivity extends FragmentActivity implements PickerListener{
@@ -21,7 +25,7 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
 	
 	
 	
-	TextView _colorTextView;
+	
 	Intent _mainIntent;
 
     
@@ -30,16 +34,32 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picker);
         //grab color text view 
-        _colorTextView=(TextView)findViewById(R.id.ColorView1);
+        TextView colorTextView=(TextView)findViewById(R.id.ColorView1);
+        LinearLayout sliderLayout = (LinearLayout)findViewById(R.id.ColorSliders);
+    	Button webButton = (Button)findViewById(R.id.WebButton);
         _mainIntent = getIntent();
         String favColor = _mainIntent.getStringExtra("fav_color");
-        _colorTextView.setText(favColor + " is your favorite color! You can customize the the background color by using the RGB sliders. To save please press the save button. For color ideas press the idea button. ");
+        
+        
+        
+        
+
+    	sliderLayout.setVisibility(View.VISIBLE);
+    	if(WebInterface.getConnectionStatus(this)){
+    		colorTextView.setText(favColor +  " " + this.getString(R.string.fav_color_conn_text));
+    		webButton.setVisibility(View.VISIBLE);
+    	}else{
+    		colorTextView.setText(favColor + " " + this.getString(R.string.fav_color_not_conn_text));
+    		webButton.setVisibility(View.GONE);
+    	}
+    	
+		
         
         
         
     }
     
-	
+    
 	
     
 
