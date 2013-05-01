@@ -10,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarChangeListener,OnClickListener {
+public class ColorPickerFragment extends Fragment {
 	
 	static int _redInt;
 	static int _greenInt;
@@ -49,25 +51,11 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 		   
 	        //grab color text view 
 	        _colorTextView=(TextView)view.findViewById(R.id.ColorView1);
-	        //Detect seek bars and buttons
-	        SeekBar redBar = (SeekBar)view.findViewById(R.id.RedBar);
-	        SeekBar greenBar = (SeekBar)view.findViewById(R.id.GreenBar);
-	        SeekBar blueBar = (SeekBar)view.findViewById(R.id.BlueBar);
-	        Button saveButton = (Button)view.findViewById(R.id.SaveButton);
-	        Button webButton = (Button)view.findViewById(R.id.WebButton);
-	        //Set background color
-	        _redInt = 255;
-	        _greenInt = 255;
-	        _blueInt = 255;
-	        view.setBackgroundColor(Color.rgb(_redInt, _greenInt, _blueInt));
 	        
-	        //detect user input
-	        redBar.setOnSeekBarChangeListener(this);
-	        blueBar.setOnSeekBarChangeListener(this);
-	        greenBar.setOnSeekBarChangeListener(this);
-	        saveButton.setOnClickListener(this);
-	        webButton.setOnClickListener(this);
-
+	        WebView myWebView = (WebView)view.findViewById(R.id.webview);
+	        myWebView.getSettings().setJavaScriptEnabled(true);
+	        myWebView.loadUrl("file:///android_asset/www/index.html");
+	        
 		 
 			
 			
@@ -77,27 +65,7 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 	   }
 	
 	
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-			switch(v.getId()){
-		
-		
-			case R.id.SaveButton:
-			
-				listener.onColorChange(_redInt, _greenInt, _blueInt);
 
-					
-			break;
-		case R.id.WebButton:
-			Uri uriUrl = Uri.parse("http://cloford.com/resources/colours/500col.htm");
-			Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl); 
-			startActivity(launchBrowser); 
-			break;
-		
-	}
-		
-	}
 		@Override
 		public void onAttach(Activity activity){
 			super.onAttach(activity);
@@ -109,53 +77,5 @@ public class ColorPickerFragment extends Fragment implements SeekBar.OnSeekBarCh
 		}{
 
 			}
-		@Override
-		public void onProgressChanged(SeekBar seekBar, int progress,
-				boolean fromUser) {
-			
-			
-			TextView redBarText =(TextView)getActivity().findViewById(R.id.RedBarText);
-			TextView greenBarText=(TextView)getActivity().findViewById(R.id.GreenBarText);
-			TextView blueBarText=(TextView)getActivity().findViewById(R.id.BlueBarText);
-			
-			
-			switch(seekBar.getId()){
-			
-			
-			case R.id.RedBar:
-				redBarText.setText(Integer.toString(progress));
-				_redInt = progress;
-				break;
-				
-			case R.id.BlueBar:
-				blueBarText.setText(Integer.toString(progress));
-				_blueInt = progress;
-				break;
-				
-			case R.id.GreenBar:
-				greenBarText.setText(Integer.toString(progress));
-				_greenInt = progress;
-				break;
-			}
-			
-			
-			view.setBackgroundColor(Color.rgb(_redInt, _greenInt, _blueInt));
-		}
-
-		@Override
-		public void onStartTrackingTouch(SeekBar seekBar) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void onStopTrackingTouch(SeekBar seekBar) {
-			
-			
-			
-			
-			
-		}
-
 		
 }

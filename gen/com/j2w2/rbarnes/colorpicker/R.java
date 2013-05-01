@@ -24,30 +24,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int BlueBar=0x7f080012;
-        public static final int BlueBarText=0x7f080013;
-        public static final int BlueLayout=0x7f080011;
-        public static final int ButtonLayout=0x7f080014;
-        public static final int ColorSliders=0x7f080009;
         public static final int ColorView1=0x7f080008;
-        public static final int GreenBar=0x7f08000f;
-        public static final int GreenBarText=0x7f080010;
-        public static final int GreenLayout=0x7f08000d;
         public static final int LinearLayout1=0x7f080007;
         public static final int MainLayout=0x7f080002;
         public static final int PickButton=0x7f080006;
-        public static final int RedBar=0x7f08000b;
-        public static final int RedBarText=0x7f08000c;
-        public static final int RedLayout=0x7f08000a;
-        public static final int SaveButton=0x7f080015;
-        public static final int WebButton=0x7f080016;
-        public static final int action_settings=0x7f080017;
+        public static final int action_settings=0x7f08000a;
         public static final int color_input_field=0x7f080004;
         public static final int mainFragment=0x7f080000;
         public static final int pickerFragment=0x7f080001;
         public static final int textView1=0x7f080003;
-        public static final int textView2=0x7f08000e;
         public static final int textView3=0x7f080005;
+        public static final int webview=0x7f080009;
     }
     public static final class layout {
         public static final int activity_color_main=0x7f030000;

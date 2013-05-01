@@ -5,7 +5,7 @@
  * 
  * @author	Ronaldo Barnes
  * 
- * date		Mar 12, 2013
+ * date		Mar 21, 2013
  */
 package com.j2w2.rbarnes.colorpicker;
 
@@ -42,10 +42,10 @@ public class ColorMainActivity extends FragmentActivity implements FavoriteListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_color_main);
 		_view = (View)findViewById(R.id.MainLayout);
-		_sliderLayout = (LinearLayout)findViewById(R.id.ColorSliders);
+		
 		_colorTextView = (TextView)findViewById(R.id.ColorView1);
 		_favText = (EditText)findViewById(R.id.color_input_field);
-		_webButton = (Button)findViewById(R.id.WebButton);
+		
 		
 		//set toast text
 		_toast = Toast.makeText(this, "Please enter a color!.", Toast.LENGTH_SHORT);

@@ -35,8 +35,7 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
         setContentView(R.layout.activity_picker);
         //grab color text view 
         TextView colorTextView=(TextView)findViewById(R.id.ColorView1);
-        LinearLayout sliderLayout = (LinearLayout)findViewById(R.id.ColorSliders);
-    	Button webButton = (Button)findViewById(R.id.WebButton);
+        
         _mainIntent = getIntent();
         String favColor = _mainIntent.getStringExtra("fav_color");
         
@@ -44,13 +43,13 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
         
         
 
-    	sliderLayout.setVisibility(View.VISIBLE);
+    	
     	if(WebInterface.getConnectionStatus(this)){
     		colorTextView.setText(favColor +  " " + this.getString(R.string.fav_color_conn_text));
-    		webButton.setVisibility(View.VISIBLE);
+    		
     	}else{
     		colorTextView.setText(favColor + " " + this.getString(R.string.fav_color_not_conn_text));
-    		webButton.setVisibility(View.GONE);
+    		
     	}
     	
 		
