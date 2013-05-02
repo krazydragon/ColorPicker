@@ -5,7 +5,7 @@
  * 
  * @author	Ronaldo Barnes
  * 
- * date		Mar 21, 2013
+ * date		May 2, 2013
  */
 package com.j2w2.rbarnes.colorpicker;
 
@@ -20,6 +20,7 @@ import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -68,10 +69,11 @@ public class ColorMainActivity extends FragmentActivity implements FavoriteListe
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 	  if (resultCode == RESULT_OK && requestCode == 0) {
 		  super.onActivityResult(requestCode, resultCode, data);
-		  if(data.getExtras().containsKey("redInfo")){
+		  if(data.getExtras().containsKey("hexValue")){
 			  
 			  
-			  _view.setBackgroundColor(Color.rgb(data.getIntExtra("redInfo", 0), data.getIntExtra("greenInfo", 0), data.getIntExtra("blueInfo", 0)));
+			  _view.setBackgroundColor(Color.parseColor(data.getStringExtra("hexValue")));
+			  
 			  _favText.setText("");
 			  }
 		  }
@@ -104,11 +106,11 @@ public class ColorMainActivity extends FragmentActivity implements FavoriteListe
 	}
 
 	@Override
-	public void onColorChange(int red, int green, int blue) {
+	public void onColorChange(String hexValue) {
 		
 		
 		
-		_view.setBackgroundColor(Color.rgb(red, green, blue));
+		_view.setBackgroundColor(Color.parseColor(hexValue));
 		_colorTextView.setText(this.getString(R.string.pick_text));
 		_sliderLayout.setVisibility(View.GONE);
 		_favText.setText("");
@@ -118,6 +120,17 @@ public class ColorMainActivity extends FragmentActivity implements FavoriteListe
 		_colorTextView.setText(_favText.getText().toString() + " " + this.getString(R.string.fav_color_main_text));
 		_sliderLayout.setVisibility(View.VISIBLE);
 		_webButton.setVisibility(View.GONE);
+	}
+
+	
+	@Override
+	public void onBackPressed()
+	{
+		WebView myWebView = (WebView)findViewById(R.id.webview);
+	    if(myWebView.canGoBack())
+	    	myWebView.goBack();
+	    else
+	        super.onBackPressed();
 	}
 
 }

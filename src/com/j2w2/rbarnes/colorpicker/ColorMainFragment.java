@@ -1,3 +1,12 @@
+/*
+ * project	ColorPicker
+ * 
+ * package	com.j2w2.rbarnes.colorpicker
+ * 
+ * @author	Ronaldo Barnes
+ * 
+ * date		May 2, 2013
+ */
 package com.j2w2.rbarnes.colorpicker;
 
 import android.app.Activity;

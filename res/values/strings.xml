@@ -14,7 +14,7 @@
     <string name="zero">255</string>
     <string name="save">Save</string>
     <string name="help">Idea</string>
-    <string name="fav_color_conn_text"> is your favorite color! You can customize the the background color by using the RGB sliders. To save please press the save button. For color ideas press the idea button. </string>
+    <string name="fav_color_conn_text"> is your favorite color! You can customize the the background color by using the predefined colors or picking your own. To save just pick a color.  </string>
     <string name="fav_color_not_conn_text"> is your favorite color! You can customize the the background color by using the RGB sliders. To save please press the save button. Sorry no color ideas because there is no internet connection! </string>
     <string name="fav_color_main_text"> is your favorite color!</string>
     <string name="pick_text">Please pick a favorite color and the press button!</string>

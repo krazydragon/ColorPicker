@@ -5,7 +5,7 @@
  * 
  * @author	Ronaldo Barnes
  * 
- * date		Mar 12, 2013
+ * date		May 2, 2013
  */
 package com.j2w2.rbarnes.colorpicker;
 
@@ -15,9 +15,6 @@ import com.rbarnes.other.WebInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ColorPickerActivity extends FragmentActivity implements PickerListener{
@@ -27,14 +24,14 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
 	
 	
 	Intent _mainIntent;
-
+	TextView _colorTextView;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picker);
         //grab color text view 
-        TextView colorTextView=(TextView)findViewById(R.id.ColorView1);
+        _colorTextView=(TextView)findViewById(R.id.ColorView1);
         
         _mainIntent = getIntent();
         String favColor = _mainIntent.getStringExtra("fav_color");
@@ -45,10 +42,10 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
 
     	
     	if(WebInterface.getConnectionStatus(this)){
-    		colorTextView.setText(favColor +  " " + this.getString(R.string.fav_color_conn_text));
+    		_colorTextView.setText(favColor +  " " + this.getString(R.string.fav_color_conn_text));
     		
     	}else{
-    		colorTextView.setText(favColor + " " + this.getString(R.string.fav_color_not_conn_text));
+    		_colorTextView.setText(favColor + " " + this.getString(R.string.fav_color_not_conn_text));
     		
     	}
     	
@@ -64,12 +61,17 @@ public class ColorPickerActivity extends FragmentActivity implements PickerListe
 
 
 	@Override
-	public void onColorChange(int red, int green, int blue) {
+	public void onColorChange(String hexValue) {
+		_mainIntent.putExtra("hexValue", hexValue);
 		
-		_mainIntent.putExtra("redInfo", red);
-		_mainIntent.putExtra("greenInfo",green);
-		_mainIntent.putExtra("blueInfo",blue);
 		 setResult(RESULT_OK, _mainIntent);
 		 finish();
 		
-	}}
+	}
+
+
+
+
+
+
+	}

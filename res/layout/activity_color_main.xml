@@ -12,11 +12,5 @@
         class="com.j2w2.rbarnes.colorpicker.ColorMainFragment" 
         android:layout_weight="1" >
     </fragment>
-	<fragment
-        android:id="@+id/pickerFragment"
-        android:layout_width="0dip"
-        android:layout_height="match_parent"
-        class="com.j2w2.rbarnes.colorpicker.ColorPickerFragment" 
-        android:layout_weight="1" >
-    </fragment>
+
 </LinearLayout>
